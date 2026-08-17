@@ -57,6 +57,7 @@
         .product-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; border: 1px solid #eee; background: #f9f9f9; }
         .product-info { width: 100%; }
         
+        /* यूट्यूब वीडियो लिंक बटन स्टाइल */
         .yt-link-btn { display: inline-flex; align-items: center; gap: 5px; background-color: #ff0000; color: white; font-size: 12px; font-weight: bold; padding: 4px 10px; border-radius: 4px; text-decoration: none; margin-bottom: 6px; }
         .yt-link-btn:hover { background-color: #cc0000; }
 
@@ -282,8 +283,7 @@
 </div>
 
 <script>
-    // नया Google Apps Script URL यहाँ अपडेट कर दिया गया है
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbweY_welW8gLdUH8NRwfIpg8C35uJZB8si2AL_xwhkKDQ2BCjfL873P0vBf9mY3o3fD/exec";
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyLfXjHe7CGqaW9YqnhI2cbB7xk7cpPHYxuEZU9lnfO9H_GBlMqg-AwxbZsfUvLqbbUdQ/exec";
 
     let defaultData = [{name: "कॉपर वायर (90M Roll)", mrp: 1500, price: 1400, unit: "pkt", img: "", yt: ""}];
 
@@ -461,7 +461,7 @@
         let h = "";
         list.forEach((it, i) => {
             let mrpHtml = it.mrp && it.mrp > it.price ? `<span class="mrp-price">₹${it.mrp}</span>` : '';
-            let ytBtnHtml = it.yt && String(it.yt).trim() !== "" ? `<a href="${it.yt}" target="_blank" class="yt-link-btn">▶️ यूट्यूब पर वीडियो देखें</a><br>` : '';
+            let ytBtnHtml = it.yt ? `<a href="${it.yt}" target="_blank" class="yt-link-btn">▶️ वीडियो देखें</a><br>` : '';
             
             h += `<div class="product-card">
                 <img src="${it.img}" onerror="this.src='https://via.placeholder.com/150?text=Item'">
